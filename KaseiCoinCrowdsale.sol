@@ -1,5 +1,6 @@
 pragma solidity ^0.5.0;
 
+
 import "./KaseiCoin.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/Crowdsale.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/emission/MintedCrowdsale.sol";
@@ -9,9 +10,8 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5
 // * Crowdsale
 // * MintedCrowdsale
 
-contract KaseiCoinCrowdsale is Crowdsale, MintedCrowdsale{ // UPDATE THE CONTRACT SIGNATURE TO ADD INHERITANCE
+contract KaseiCoinCrowdsale is Crowdsale, MintedCrowdsale{ 
     
-    // Provide parameters for all of the features of your crowdsale, such as the `rate`, `wallet` for fundraising, and `token`.
     constructor(
         uint256 rate,
         address payable wallet,
@@ -41,7 +41,7 @@ contract KaseiCoinCrowdsaleDeployer {
 
         // Create a new instance of the `KaseiCoinCrowdsale` contract
         KaseiCoinCrowdsale kaseicoin_crowdsale = 
-            new KaseiCoinCrowd(1, wallet, token);
+            new KaseiCoinCrowdsale(1, wallet, token);
             
         // Aassign the `KaseiCoinCrowdsale` contract’s address to the `kasei_crowdsale_address` variable.
         kasei_crowdsale_address = address(kaseicoin_crowdsale);
